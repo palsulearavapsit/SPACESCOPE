@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Space Grotesk', 'Orbitron', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: radial-gradient(ellipse at center, rgba(12,18,40,1) 0%, rgba(6,12,30,1) 60%, rgba(0,0,0,1) 100%);
+  color: #eaf2ff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1f2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4f46e5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* Neon headings and glass cards */
+.neon {
+  color: #dbeafe;
+  text-shadow: 0 0 10px rgba(99,102,241,0.8), 0 0 20px rgba(124,58,237,0.5), 0 0 40px rgba(88,198,255,0.3);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(167,139,250,0.05));
+  backdrop-filter: blur(12px) saturate(130%);
+  border: 1.5px solid rgba(99,102,241,0.3);
+  box-shadow: 0 10px 40px rgba(99,102,241,0.15), inset 0 1px 0 rgba(255,255,255,0.08), 0 0 20px rgba(124,58,237,0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(99,102,241,0.6);
+  box-shadow: 0 15px 50px rgba(99,102,241,0.25), inset 0 1px 0 rgba(255,255,255,0.1), 0 0 30px rgba(124,58,237,0.2);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(167,139,250,0.08));
+}
+
+/* Glow effects */
+.glow-text {
+  color: #88ccff;
+  text-shadow: 0 0 8px rgba(136,204,255,0.8), 0 0 16px rgba(99,102,241,0.5), 0 0 24px rgba(66,165,245,0.3);
+}
+
+.glow-border {
+  border: 1.5px solid rgba(99,102,241,0.4);
+  box-shadow: 0 0 10px rgba(99,102,241,0.3), inset 0 0 10px rgba(99,102,241,0.1);
+  transition: all 0.3s ease;
+}
+
+.glow-border:hover {
+  border-color: rgba(124,58,237,0.6);
+  box-shadow: 0 0 20px rgba(124,58,237,0.5), inset 0 0 10px rgba(124,58,237,0.15);
+}
+
+.space-card {
+  background: linear-gradient(135deg, rgba(30,27,75,0.6), rgba(25,15,60,0.6));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(99,102,241,0.2);
+  border-radius: 12px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.space-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, transparent, rgba(99,102,241,0.1), transparent);
+  border-radius: 12px;
+  pointer-events: none;
+}
+
+.space-card:hover {
+  border-color: rgba(99,102,241,0.4);
+  box-shadow: 0 10px 40px rgba(99,102,241,0.2), 0 0 20px rgba(124,58,237,0.1);
+  transform: translateY(-4px);
+}
+
+/* Neon button styles */
+.neon-btn {
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(124,58,237,0.1));
+  border: 1.5px solid rgba(99,102,241,0.5);
+  color: #88ccff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-shadow: 0 0 4px rgba(136,204,255,0.4);
+  box-shadow: 0 0 10px rgba(99,102,241,0.2);
+}
+
+.neon-btn:hover {
+  background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(124,58,237,0.2));
+  border-color: rgba(124,58,237,0.8);
+  box-shadow: 0 0 20px rgba(124,58,237,0.5), 0 0 30px rgba(99,102,241,0.3);
+  text-shadow: 0 0 8px rgba(136,204,255,0.8);
+  transform: scale(1.05);
+}
+
+/* Animation keyframes */
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow: 0 0 6px rgba(99,102,241,0.6), 0 0 20px rgba(124,58,237,0.25);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(99,102,241,0.8), 0 0 30px rgba(124,58,237,0.4);
+  }
+}
+
+@keyframes float-up {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes border-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(99,102,241,0.3), inset 0 0 10px rgba(99,102,241,0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(99,102,241,0.5), inset 0 0 15px rgba(99,102,241,0.2);
+  }
+}
+
+.pulse-glow {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float-up 3s ease-in-out infinite;
+}
+
+/* make main content sit above cosmic background */
+.app-content {
+  position: relative;
+  z-index: 10;
+}

@@ -1,0 +1,151 @@
+.cosmic-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.cosmic-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+}
+
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  filter: drop-shadow(0 10px 30px rgba(120,80,255,0.25));
+  transform-origin: center;
+}
+
+.planet-1 {
+  width: 260px;
+  height: 260px;
+  right: 6%;
+  top: 8%;
+  background: radial-gradient(circle at 30% 30%, #ffd6a5 0%, #ff7b7b 40%, #7b2cff 100%);
+  animation: floatY 12s ease-in-out infinite, spin 40s linear infinite;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.95;
+}
+
+.planet-2 {
+  width: 120px;
+  height: 120px;
+  left: 4%;
+  bottom: 10%;
+  background: radial-gradient(circle at 40% 40%, #8ee7ff 0%, #2fb5ff 45%, #0b3b60 100%);
+  animation: floatY 9s ease-in-out infinite reverse, spin 30s linear infinite;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 0.9;
+}
+
+@keyframes floatY {
+  0% { transform: translateY(0) }
+  50% { transform: translateY(-18px) }
+  100% { transform: translateY(0) }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
+.comet {
+  position: absolute;
+  width: 4px;
+  height: 80px;
+  top: 30%;
+  left: 60%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0));
+  transform: rotate(-25deg) translateX(-200px);
+  animation: swoosh 4s ease-in-out infinite;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+@keyframes swoosh {
+  0% { transform: translateX(-200px) rotate(-25deg); opacity: 0 }
+  30% { opacity: 1 }
+  100% { transform: translateX(1200px) rotate(-25deg); opacity: 0 }
+}
+/* Starfield and enhanced effects */
+.star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+}
+
+.star-tiny { width: 1px; height: 1px; }
+.star-small { width: 2px; height: 2px; }
+.star-medium { width: 3px; height: 3px; }
+
+.twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Nebula glow */
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  mix-blend-mode: screen;
+  opacity: 0.15;
+}
+
+.nebula-1 {
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  left: 10%;
+  background: radial-gradient(circle, rgba(100,50,255,0.4) 0%, transparent 70%);
+}
+
+.nebula-2 {
+  width: 250px;
+  height: 250px;
+  bottom: 15%;
+  right: 8%;
+  background: radial-gradient(circle, rgba(50,100,255,0.3) 0%, transparent 70%);
+}
+
+/* Aurora effect */
+.aurora {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  top: 10%;
+  left: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%,
+    rgba(100,200,255,0.1) 25%,
+    rgba(150,100,255,0.15) 50%,
+    rgba(100,200,255,0.1) 75%,
+    transparent 100%);
+  filter: blur(30px);
+  animation: aurora-shift 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes aurora-shift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+}
+
+/* Glow around planets */
+.planet::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 40px rgba(99,102,241,0.4);
+}
